@@ -5,23 +5,11 @@ namespace Full_GRASP_And_SOLID.Library
 {    
     public class PrintRecipe
     {
-        /*public static Recipe item;
-        public PrintRecipe(Recipe recipe)
-        /*{
-            this.item = recipe;
-        }
-        
-        Console.WriteLine($"Receta de {Recipe.FinalProduct.Description}:");
-        foreach (Step step in Recipe.steps)
-        {
-            Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
-                $"usando '{step.Equipment.Description}' durante {step.Time}");
-        }
-    }*/
         public static void Printer(Recipe recipe)
         {
             Console.WriteLine(recipe.GetRecipe());
         }
     }
-
+/*Utilicé el patrón SRP para separar las responsabilidades que antes estaban en Recipe
+en dos clases, la clase Recipe y la nueva clase PrintRecipe, y así cada clase tiene una sola responsabilidad
 }
