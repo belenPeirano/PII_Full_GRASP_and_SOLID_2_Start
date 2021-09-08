@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections;
+using System.Text;
 
 namespace Full_GRASP_And_SOLID.Library
 {
@@ -24,15 +25,16 @@ namespace Full_GRASP_And_SOLID.Library
         {
             this.steps.Remove(step);
         }
-
-        public void PrintRecipe()
+        public string GetRecipe()
         {
-            Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
+            StringBuilder text = new StringBuilder($"Receta de {this.FinalProduct.Description}:\n");
+            text.Append("--------------------------------------------\n");
+
             foreach (Step step in this.steps)
             {
-                Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
-                    $"usando '{step.Equipment.Description}' durante {step.Time}");
+                text.Append($"- {step.Quantity} de '{step.Input.Description}' " + $"usando '{step.Equipment.Description}' durante {step.Time}\n");
             }
+            return text.ToString();
         }
     }
 }
